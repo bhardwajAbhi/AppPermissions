@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_btn_system"
+        android:icon="@drawable/ic_system_settings"
+        android:title="System" />
+
+    <item
+        android:id="@+id/navigation_btn_playstore"
+        android:icon="@drawable/ic_playstore"
+        android:title="Playstore" />
+
+    <item
+        android:id="@+id/navigation_btn_adb"
+        android:icon="@drawable/ic_usb"
+        android:title="ADB" />
+
+    <item
+        android:id="@+id/navigation_btn_pkginstaller"
+        android:icon="@drawable/ic_file"
+        android:title="Pkg Installer" />
+
+</menu>

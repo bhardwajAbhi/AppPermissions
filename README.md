@@ -14,3 +14,10 @@ The app indicates whether dangerous permissions have been granted by the user.
 
 ### Feature 4: Segregation by Permission Type
 To make permission management easier, the app segregates apps based on their permission types. Users can quickly identify which apps have access to specific functionalities, such as camera, location, or microphone. 
+
+
+#### Screenshots
+| Splash Screen                       | Home Screen                         | Results Screen                              |
+| ----------------------------------- | ----------------------------------- | ------------------------------------------- |
+| ![Splash](./screenshots/splash_screen.png) | ![Home](./screenshots/home_screen.png) | ![Results](./screenshots/results_screen.png) |
+

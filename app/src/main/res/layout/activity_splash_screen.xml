@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="50dp">
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <View
+            android:layout_width="15dp"
+            android:layout_height="0dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AppPermissions"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                android:textColor="#37474F"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Control Your Privacy"
+                android:textSize="18sp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                android:textColor="@color/color_primary_light" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="20dp">
+
+
+
+        <ImageView
+            android:id="@+id/image_bg_1"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_marginHorizontal="5dp"
+            android:src="@drawable/shape_circle"
+            app:tint="@color/color_primary_light" />
+
+
+        <ImageView
+            android:id="@+id/image_bg_2"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:src="@drawable/shape_circle"
+            android:layout_marginHorizontal="5dp"
+            app:tint="@color/color_primary_light" />
+
+
+        <ImageView
+            android:id="@+id/image_bg_3"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:src="@drawable/shape_circle"
+            android:layout_marginHorizontal="5dp"
+            app:tint="@color/color_primary_light" />
+
+    </LinearLayout>
+</RelativeLayout>
