@@ -44,7 +44,7 @@ public class AppListAdapter extends RecyclerView.Adapter<AppListAdapter.ViewHold
 
         holder.appNameTextView.setText(app.getAppName());
         holder.packageNameTextView.setText(app.getPackageName());
-        holder.dangerousPermissionsTextView.setText("Dangerous Permissions: " + app.getPermissions().size());
+        holder.dangerousPermissionsTextView.setText("Permissions: " + app.getPermissions().size());
 
         holder.appIconImageView.setImageDrawable(Tools.getAppIcon(context, app.getPackageName()));
 
