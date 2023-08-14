@@ -19,5 +19,5 @@ To make permission management easier, the app segregates apps based on their per
 #### Screenshots
 | Splash Screen                       | Home Screen                         | Results Screen                              |
 | ----------------------------------- | ----------------------------------- | ------------------------------------------- |
-| ![Splash](./screenshots/splash_screen.png) | ![Home](./screenshots/home_screen.png) | ![Results](./screenshots/results_screen.png) |
+| ![Splash](./screenshots/splash_screen.jpg) | ![Home](./screenshots/home_screen.jpg) | ![Results](./screenshots/results_screen.jpg) |
 
