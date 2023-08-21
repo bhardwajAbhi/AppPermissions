@@ -1,8 +1,13 @@
 package com.project.app.permissions.manager.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 
-public class AppInfo {
+public class AppInfo implements Parcelable {
     String appName;
     String packageName;
     boolean isSystemApp;
@@ -11,6 +16,26 @@ public class AppInfo {
 
     public AppInfo() {
     }
+
+    protected AppInfo(Parcel in) {
+        appName = in.readString();
+        packageName = in.readString();
+        isSystemApp = in.readByte() != 0;
+        sourceOfInstallation = in.readString();
+        permissions = in.createStringArrayList();
+    }
+
+    public static final Creator<AppInfo> CREATOR = new Creator<AppInfo>() {
+        @Override
+        public AppInfo createFromParcel(Parcel in) {
+            return new AppInfo(in);
+        }
+
+        @Override
+        public AppInfo[] newArray(int size) {
+            return new AppInfo[size];
+        }
+    };
 
     public String getAppName() {
         return appName;
@@ -50,5 +75,19 @@ public class AppInfo {
 
     public void setPermissions(ArrayList<String> permissions) {
         this.permissions = permissions;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeString(appName);
+        dest.writeString(packageName);
+        dest.writeByte((byte) (isSystemApp ? 1 : 0));
+        dest.writeString(sourceOfInstallation);
+        dest.writeStringList(permissions);
     }
 }

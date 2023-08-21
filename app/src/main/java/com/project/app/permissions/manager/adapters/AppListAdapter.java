@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.app.permissions.manager.R;
+import com.project.app.permissions.manager.activities.AppDetailsActivity;
 import com.project.app.permissions.manager.models.AppInfo;
 import com.project.app.permissions.manager.utils.Tools;
 
@@ -25,10 +27,17 @@ public class AppListAdapter extends RecyclerView.Adapter<AppListAdapter.ViewHold
     private ArrayList<AppInfo> appList;
     private PackageManager packageManager;
 
-    public AppListAdapter(Context context, ArrayList<AppInfo> appList) {
+    private OnItemClickListener listener;
+
+    public interface OnItemClickListener {
+        void onItemClick(AppInfo appInfo);
+    }
+
+    public AppListAdapter(Context context, ArrayList<AppInfo> appList, OnItemClickListener listener) {
         this.context = context;
         this.appList = appList;
         this.packageManager = context.getPackageManager();
+        this.listener = listener;
     }
 
     @NonNull
@@ -48,15 +57,22 @@ public class AppListAdapter extends RecyclerView.Adapter<AppListAdapter.ViewHold
 
         holder.appIconImageView.setImageDrawable(Tools.getAppIcon(context, app.getPackageName()));
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent openDetailsActivity = new Intent(context, AppDetailsActivity.class);
+                openDetailsActivity.putExtra(Tools.KEY_APP_DETAILS_PARCELABLE, app);
+                context.startActivity(openDetailsActivity);
+            }
+        });
+
         holder.deleteImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Uninstall the app
-                Uri packageUri = Uri.parse("package:" + app.getPackageName());
-                Intent uninstallIntent = new Intent(Intent.ACTION_UNINSTALL_PACKAGE, packageUri);
-                context.startActivity(uninstallIntent);
+                listener.onItemClick(app);
             }
         });
+
     }
 
     @Override

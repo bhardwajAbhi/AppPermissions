@@ -1,56 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/container"
+    android:id="@+id/bgLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white">
+    android:layout_height="match_parent">
 
-
-    <!-- search bar layout -->
-    <include
-        android:id="@+id/search_bar"
-        layout="@layout/include_card_view_search_bar" />
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/scan_results_recycler_view"
-        android:layout_below="@id/search_bar"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_navigation" />
+        android:background="@color/white">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
+
+        <!-- search bar layout -->
+        <include
+            android:id="@+id/search_bar"
+            layout="@layout/include_card_view_search_bar" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/scan_results_recycler_view"
+            android:layout_below="@id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom_navigation" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:background="@android:color/white"
+            app:elevation="15dp"
+            app:itemIconTint="@color/color_state_primary"
+            app:itemTextColor="@color/color_state_primary"
+            app:menu="@menu/menu_bottom_navigation" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/iv_no_apps_found"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            app:srcCompat="@drawable/ic_no_apps"
+            app:tint="#4E4E4E" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_no_apps_found"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/iv_no_apps_found"
+            android:text="No Apps Found"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#4E4E4E"/>
+    </RelativeLayout>
+
+    <!--bottom sheet container-->
+    <FrameLayout
+        android:id="@+id/bottom_sheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
-        android:background="@android:color/white"
-        app:elevation="15dp"
-        app:itemIconTint="@color/color_state_primary"
-        app:itemTextColor="@color/color_state_primary"
-        app:menu="@menu/menu_bottom_navigation" />
+        app:layout_behavior="@string/bottom_sheet_behavior" />
 
-    <ImageView
-        android:visibility="gone"
-        android:id="@+id/iv_no_apps_found"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerInParent="true"
-        app:srcCompat="@drawable/ic_no_apps"
-        app:tint="#4E4E4E" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    <TextView
-        android:visibility="gone"
-        android:id="@+id/tv_no_apps_found"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_below="@id/iv_no_apps_found"
-        android:text="No Apps Found"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:textColor="#4E4E4E"/>
 
-</RelativeLayout>
+

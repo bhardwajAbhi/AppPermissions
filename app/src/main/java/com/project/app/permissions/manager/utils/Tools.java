@@ -3,6 +3,7 @@ package com.project.app.permissions.manager.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -27,6 +28,8 @@ public class Tools {
 
     public static final String KEY_LAST_SCAN_TIME = "last_scan_time";
 
+    public static final String KEY_APP_DETAILS_PARCELABLE = "app_details";
+
 
     public static void setSystemBarColor(Activity act, @ColorRes int color) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -46,5 +49,13 @@ public class Tools {
             e.printStackTrace();
         }
         return null;
+    }
+    
+    public static PackageInfo getPackageInformation (Context context, String packageName){
+        try {
+            return context.getPackageManager().getPackageInfo(packageName, 0);
+        } catch (PackageManager.NameNotFoundException e) {
+           return null;
+        }
     }
 }

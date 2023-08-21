@@ -2,8 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
+    <uses-permission
+        android:name="android.permission.QUERY_ALL_PACKAGES"
         tools:ignore="QueryAllPackagesPermission" />
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
 
     <application
         android:allowBackup="true"
@@ -16,11 +18,14 @@
         android:theme="@style/Theme.AppPermissions"
         tools:targetApi="31">
         <activity
+            android:name=".activities.AppDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.ScanResultsActivity"
             android:exported="false" />
         <activity
             android:name=".activities.IntroActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".activities.HomeActivity"
             android:exported="false" />
